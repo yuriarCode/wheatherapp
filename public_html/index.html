@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+        <a class="navbar-brand" >Weather App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showSection('info')">Información</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showSection('current')">Temperatura y humedad actual</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showSection('forecast')">Pronóstico de lluvias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="showSection('wind')">Viento</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div id="info" class="section">
+            <h1>Información</h1>
+            <p>Esta aplicación te permite obtener la temperatura y humedad actual de tu ubicación, la sensación térmica, el pronóstico de lluvias y la calidad del aire, dirección del viento y visibilidad, basado en la geolocalización.</p>
+            <p id="daily-summary"></p>
+        </div>
+        <div id="current" class="section" style="display: none;">
+            <div>
+                <h1>Temperatura y humedad actual</h1>
+                <div id="weather-info">
+                    <p>Temperatura: <span id="temperature"></span>°C</p>
+                    <p>Humedad: <span id="humidity"></span>%</p>
+                    <p>Sensación térmica: <span id="feels-like"></span>°C</p>
+                </div>
+                <div id="map"></div>
+            </div>
+        </div>
+        <div id="forecast" class="section" style="display: none;">
+            <h1>Pronóstico de lluvias</h1>
+            <div id="forecast-info">
+                <canvas id="rain-forecast-chart"></canvas>
+            </div>
+        </div>
+        <div id="wind" class="section" style="display: none;">
+            <h1>Viento</h1>
+            <div id="wind-info">
+                <p>Dirección del viento: <span id="wind-direction"></span></p>
+                <p>Velocidad del viento: <span id="wind-speed"></span> m/s</p>
+                <p>Visibilidad: <span id="visibility"></span> </p>
+                <p>Probabilidad de niebla: <span id="fog-probability"></span>%</p>
+                <p>Calidad del Aire (AQI): <span id="aqi"></span> (<span id="aqi-description"></span>)</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
